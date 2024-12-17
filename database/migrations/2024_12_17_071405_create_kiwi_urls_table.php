@@ -11,10 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('skyscrapper_urls', function (Blueprint $table) {
+        Schema::create('kiwi_urls', function (Blueprint $table) {
             $table->id();
-            $table->string('urls')->index();
-            $table->boolean('is_sync')->default(false);
             $table->timestamps();
         });
     }
@@ -24,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('skyscrapper_urls');
+        Schema::dropIfExists('kiwi_urls');
     }
 };

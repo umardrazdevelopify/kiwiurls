@@ -14,6 +14,9 @@ class Kernel extends ConsoleKernel
     {
         // Schedule the Kiwi sitemap fetch command to run daily at midnight
         $schedule->command('fetch:kiwi-sitemap')->daily();
+
+        // You can also schedule the fetch:nested-kiwi-urls command if needed
+        $schedule->command('fetch:nested-kiwi-urls')->hourly(); // Example: Run every hour
     }
 
     /**
@@ -25,4 +28,10 @@ class Kernel extends ConsoleKernel
 
         require base_path('routes/console.php');
     }
+
+    // Registering the custom commands
+    protected $commands = [
+        Commands\FetchKiwiSitemap::class,
+        Commands\FetchNestedKiwiUrls::class,
+        ];
 }
